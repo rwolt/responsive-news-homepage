@@ -23,6 +23,11 @@
 
 .top-bar li {
   padding: 5px 10px;
+  cursor: pointer;
+}
+
+.top-bar li:hover {
+  color: lime;
 }
 
 .container {
@@ -101,6 +106,8 @@
 
 aside {
   grid-area: aside;
+  display: flex;
+  flex-direction: column;
 }
 
 aside form {
@@ -119,4 +126,31 @@ footer {
 
 .nav-item {
   list-style-type: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: 4fr 2fr;
+    grid-template-areas:
+      "header header"
+      "headlines news"
+      "aside aside"
+      "footer footer";
+  }
+
+  aside {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "headlines"
+      "news"
+      "aside"
+      "footer";
+  }
 }
